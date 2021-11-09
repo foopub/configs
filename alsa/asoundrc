@@ -1,0 +1,6 @@
+defaults.ctl.card 0;
+defaults.pcm.device 8; 
+defaults.pcm.card 0;
+#defaults.ctl.card 1;
+#defaults.pcm.device 0; 
+#defaults.pcm.card 1;

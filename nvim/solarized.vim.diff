@@ -1,0 +1,47 @@
+--- .local/share/nvim/plugged/vim-colors-solarized/colors/solarized.vim	2020-06-21 17:32:50.928779285 +0100
++++ USB/Backup/kolo/.local/share/nvim/plugged/vim-colors-solarized/colors/solarized.vim	2020-06-15 03:54:24.967181964 +0100
+@@ -609,8 +609,8 @@
+     exe "hi! SpecialKey" .s:fmt_bold   .s:fg_base00 .s:bg_base02
+     exe "hi! NonText"    .s:fmt_bold   .s:fg_base00 .s:bg_none
+ endif
+-exe "hi! StatusLine"     .s:fmt_none   .s:fg_base1  .s:bg_base02 .s:fmt_revbb
+-exe "hi! StatusLineNC"   .s:fmt_none   .s:fg_base00 .s:bg_base02 .s:fmt_revbb
++exe "hi! StatusLine"     .s:fmt_none   .s:fg_base02 .s:bg_base2  .s:fmt_revbb
++exe "hi! StatusLineNC"   .s:fmt_none   .s:fg_base0 .s:bg_base02 .s:fmt_revbb
+ exe "hi! Visual"         .s:fmt_none   .s:fg_base01 .s:bg_base03 .s:fmt_revbb
+ exe "hi! Directory"      .s:fmt_none   .s:fg_blue   .s:bg_none
+ exe "hi! ErrorMsg"       .s:fmt_revr   .s:fg_red    .s:bg_none
+@@ -618,7 +618,7 @@
+ exe "hi! Search"         .s:fmt_revr   .s:fg_yellow .s:bg_none
+ exe "hi! MoreMsg"        .s:fmt_none   .s:fg_blue   .s:bg_none
+ exe "hi! ModeMsg"        .s:fmt_none   .s:fg_blue   .s:bg_none
+-exe "hi! LineNr"         .s:fmt_none   .s:fg_base01 .s:bg_base02
++exe "hi! LineNr"         .s:fmt_none   .s:fg_base01 .s:bg_base03
+ exe "hi! Question"       .s:fmt_bold   .s:fg_cyan   .s:bg_none
+ if ( has("gui_running") || &t_Co > 8 )
+     exe "hi! VertSplit"  .s:fmt_none   .s:fg_base00 .s:bg_base00
+@@ -629,7 +629,7 @@
+ exe "hi! VisualNOS"      .s:fmt_stnd   .s:fg_none   .s:bg_base02 .s:fmt_revbb
+ exe "hi! WarningMsg"     .s:fmt_bold   .s:fg_red    .s:bg_none
+ exe "hi! WildMenu"       .s:fmt_none   .s:fg_base2  .s:bg_base02 .s:fmt_revbb
+-exe "hi! Folded"         .s:fmt_undb   .s:fg_base0  .s:bg_base02  .s:sp_base03
++exe "hi! Folded"         .s:fmt_bold   .s:fg_base0  .s:bg_base02  .s:sp_base03
+ exe "hi! FoldColumn"     .s:fmt_none   .s:fg_base0  .s:bg_base02
+ if      (g:solarized_diffmode=="high")
+ exe "hi! DiffAdd"        .s:fmt_revr   .s:fg_green  .s:bg_none
+@@ -654,13 +654,13 @@
+ exe "hi! DiffText"       .s:fmt_none   .s:fg_blue   .s:bg_base02 .s:sp_blue
+     endif
+ endif
+-exe "hi! SignColumn"     .s:fmt_none   .s:fg_base0
++"exe "hi! SignColumn"     .s:fmt_none   .s:fg_base0
+ exe "hi! Conceal"        .s:fmt_none   .s:fg_blue   .s:bg_none
+ exe "hi! SpellBad"       .s:fmt_curl   .s:fg_none   .s:bg_none    .s:sp_red
+ exe "hi! SpellCap"       .s:fmt_curl   .s:fg_none   .s:bg_none    .s:sp_violet
+ exe "hi! SpellRare"      .s:fmt_curl   .s:fg_none   .s:bg_none    .s:sp_cyan
+ exe "hi! SpellLocal"     .s:fmt_curl   .s:fg_none   .s:bg_none    .s:sp_yellow
+-exe "hi! Pmenu"          .s:fmt_none   .s:fg_base0  .s:bg_base02  .s:fmt_revbb
++exe "hi! Pmenu"          .s:fmt_none   .s:fg_violet .s:bg_base03  .s:fmt_revbb
+ exe "hi! PmenuSel"       .s:fmt_none   .s:fg_base01 .s:bg_base2   .s:fmt_revbb
+ exe "hi! PmenuSbar"      .s:fmt_none   .s:fg_base2  .s:bg_base0   .s:fmt_revbb
+ exe "hi! PmenuThumb"     .s:fmt_none   .s:fg_base0  .s:bg_base03  .s:fmt_revbb

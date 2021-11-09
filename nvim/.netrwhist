@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =6
+let g:netrw_dirhist_6='/home/foo/Projects/DBot/cogs'
+let g:netrw_dirhist_5='/home/foo/Work/.scripts'
+let g:netrw_dirhist_4='/home/foo/Work/SECN/Bad'
+let g:netrw_dirhist_3='/home/foo/.config/zsh'
+let g:netrw_dirhist_2='/home/foo/Code/aSLN/lib/rv_core'
+let g:netrw_dirhist_1='/home/foo/Code/aSLN/src'
+let g:netrw_dirhist_0='/home/foo/Code/uSLN/test'
+let g:netrw_dirhist_9='/home/foo/Code/LT2b2/data'
+let g:netrw_dirhist_8='/home/foo/Code/LT2b2/cogs'
+let g:netrw_dirhist_7='/home/foo/Code/aSLN'
