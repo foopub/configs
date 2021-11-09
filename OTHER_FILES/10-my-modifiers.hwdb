@@ -1,0 +1,9 @@
+#for builtin keyboard
+evdev:atkbd:dmi:*
+ KEYBOARD_KEY_3a=esc
+ KEYBOARD_KEY_01=capslock
+
+#for usb keyboard (bus 3)
+evdev:input:b0003*
+ KEYBOARD_KEY_70039=esc
+ KEYBOARD_KEY_70029=capslock
