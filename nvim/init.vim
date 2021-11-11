@@ -4,6 +4,8 @@ autocmd bufwritepost init.vim source %
 "Dynamic search and replace
 set inccommand=nosplit
 
+set tabstop=4 shiftwidth=4 smarttab expandtab
+
 "Custom commands
 ":command W w !./pdfcompile.sh - groff compiler with images
 

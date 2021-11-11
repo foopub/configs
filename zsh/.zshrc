@@ -1,6 +1,9 @@
 # Add directories to the $PATH here
 export PATH=$HOME/.local/bin:$PATH
 
+# Change default umask
+umask 027
+
 # Path to your oh-my-zsh installation.
 export ZSH="/usr/share/oh-my-zsh"
 
