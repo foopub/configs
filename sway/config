@@ -5,7 +5,9 @@
 # Read `man 5 sway` for a complete reference.
 
 input type:keyboard {
-	xkb_layout gb,ru(phonetic),bg(phonetic)
+	xkb_layout gb,gb(colemak_dh) 
+    #,bg(phonetic)
+    #,ru(phonetic)
 	xkb_options grp:shift_caps_toggle
 }
 default_border pixel 1
@@ -64,10 +66,10 @@ output * scale 1
 #       natural_scroll enabled
 #       middle_emulation enabled
 #   }
-input "2:1:PS/2_Generic_Mouse" {
-    accel_profile adaptive
-    pointer_accel 1
-}
+# input "2:1:PS/2_Generic_Mouse" {
+#     accel_profile adaptive
+#     pointer_accel 1
+# }
 #
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
@@ -78,8 +80,8 @@ input "2:1:PS/2_Generic_Mouse" {
 # Program Defaults:
 #
     # Default workspaces
-    assign [app_id="org.pwmt.zathura"] 2
-    assign [app_id="firefox"] 9
+    #assign [app_id="org.pwmt.zathura"] 2
+    #assign [app_id="firefox"] 9
 
     # Default layout
     for_window [class="ffplay"] floating enable
@@ -90,7 +92,7 @@ input "2:1:PS/2_Generic_Mouse" {
 # Basics:
 #
     # Start a terminal
-    bindsym $mod+Return+Shift exec $term
+    bindsym $mod+Return exec $term
     # Start your launcher
     bindsym $mod+p exec $menu
 

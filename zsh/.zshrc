@@ -1,5 +1,6 @@
 # Add directories to the $PATH here
 export PATH=$HOME/.local/bin:$PATH
+export PATH=$HOME/.pyenv/bin:$PATH
 
 # Change default umask
 umask 027
@@ -62,7 +63,8 @@ alias nvidia-settings='nvidia-settings --config="$XDG_CONFIG_HOME"/nvidia/settin
 
 # Default settings
 alias nf='neofetch --ascii_colors 6 15 --colors 9 5 3 4 5 13'
-alias chrom='chromium --force-dark-mode > /dev/null 2>&1 & disown'
+alias chrom='chromium --force-dark-mode --ozone-platform-hint=wayland > /dev/null 2>&1 & disown'
+alias freecad='QT_QPA_PLATFORM=xcb FreeCAD' #need to use X backend 
 
 # RC files
 alias rcz='nvim ~/.config/zsh/.zshrc'

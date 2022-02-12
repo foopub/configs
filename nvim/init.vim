@@ -15,6 +15,8 @@ set tabstop=4 shiftwidth=4 smarttab expandtab
 filetype plugin indent on 
 syntax enable
 
+let g:python3_host_prog="/bin/python"
+
 "use tab to navigate suggestions
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
