@@ -5,7 +5,8 @@
 # Read `man 5 sway` for a complete reference.
 
 input type:keyboard {
-	xkb_layout gb,gb(colemak_dh) 
+	xkb_layout gb(colemak_dh)
+    #,gb
     #,bg(phonetic)
     #,ru(phonetic)
 	xkb_options grp:shift_caps_toggle
