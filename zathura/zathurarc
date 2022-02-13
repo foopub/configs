@@ -1,0 +1,4 @@
+set recolor
+set recolor-keephue
+set recolor-darkcolor \#839496
+set recolor-lightcolor \#002b36
