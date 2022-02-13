@@ -1,4 +1,4 @@
-#files: 757	version: 5.8
+#files: 762	version: 5.8.1
 
 _comps=(
 '-' '_precommand'
@@ -771,6 +771,8 @@ _comps=(
 'mailx' '_mail'
 'make' '_make'
 'makeinfo' '_texinfo'
+'mako' '_mako'
+'makoctl' '_makoctl'
 'man' '_man'
 'manage.py' '_django'
 'manila' '_openstack'
@@ -1346,6 +1348,8 @@ _comps=(
 'whom' '_mh'
 'wiggle' '_wiggle'
 'wipefs' '_wipefs'
+'wl-copy' '_wl-copy'
+'wl-paste' '_wl-paste'
 'wodim' '_cdrecord'
 'wpa_cli' '_wpa_cli'
 'write' '_users_on'
@@ -1610,8 +1614,9 @@ bindkey '^[,' _history-complete-newer
 bindkey '^[/' _history-complete-older
 bindkey '^[~' _bash_complete-word
 
-autoload -Uz _alacritty _bluetoothctl _foot _footclient _libinput \
-            _ninja _sv _sway _swaymsg _xbps \
+autoload -Uz _alacritty _bluetoothctl _curl _foot _footclient \
+            _libinput _mako _makoctl _ninja _sv \
+            _sway _swaymsg _wl-copy _wl-paste _xbps \
             _xbps_src _xtools _youtube-dl _zathura _cdr \
             _all_labels _all_matches _alternative _approximate _arg_compile \
             _arguments _bash_completions _cache_invalid _call_function _combination \
