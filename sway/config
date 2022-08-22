@@ -4,10 +4,17 @@
 #
 # Read `man 5 sway` for a complete reference.
 
+exec --no-startup-id dbus-update-activation-environment --all
+
 input type:keyboard {
-	xkb_layout gb,ru(phonetic),bg(phonetic)
+	xkb_layout gb(colemak_dh),bg(phonetic)
+    #,gb
+    #,bg(phonetic)
+    #,ru(phonetic)
 	xkb_options grp:shift_caps_toggle
+    xkb_options caps:swapescape
 }
+
 default_border pixel 1
 font "monospace 13"
 titlebar_padding 1
@@ -27,6 +34,51 @@ set $term foot
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
 set $menu bemenu-run --fn "monospace 13"
+
+### Colours
+
+set $col_0 #073642
+set $col_1 #dc322f
+set $col_2 #859900
+set $col_3 #b58900
+set $col_4 #268bd2
+set $col_5 #d33682
+set $col_6 #2aa198
+set $col_7 #eee8d5
+set $col_8 #002b36
+set $col_9 #cb4b16
+set $col_10 #586e75
+set $col_11 #657b83
+set $col_12 #839496
+set $col_13 #6c71c4
+set $col_14 #93a1a1
+set $col_15 #fdf6e3
+
+#client.<class>             <border>	<bg>		<text>		[<indic.>	[<child_border>]]
+client.focused              #cb4b16		#073642		#859900		#d33682		#6c71c4		
+client.focused_inactive		#586e75		#073642		#859900		#073642		#586e75
+client.unfocused    		#586e75		#002b36		#b58900		#073642		#073642
+
+#Defaults
+#       ┌──────────────────┬─────────┬────────────┬─────────┬───────────┬──────────────┐
+#       │      class       │ border  │ background │ text    │ indicator │ child_border │
+#       ├──────────────────┼─────────┼────────────┼─────────┼───────────┼──────────────┤
+#       │background        │ n/a     │ #ffffff    │ n/a     │ n/a       │ n/a          │
+#       ├──────────────────┼─────────┼────────────┼─────────┼───────────┼──────────────┤
+#       │focused           │ #4c7899 │ #285577    │ #ffffff │ #2e9ef4   │ #285577      │
+#       ├──────────────────┼─────────┼────────────┼─────────┼───────────┼──────────────┤
+#       │focused_inactive  │ #333333 │ #5f676a    │ #ffffff │ #484e50   │ #5f676a      │
+#       ├──────────────────┼─────────┼────────────┼─────────┼───────────┼──────────────┤
+#       │focused_tab_title │ #333333 │ #5f676a    │ #ffffff │ n/a       │ n/a          │
+#       ├──────────────────┼─────────┼────────────┼─────────┼───────────┼──────────────┤
+#       │unfocused         │ #333333 │ #222222    │ #888888 │ #292d2e   │ #222222      │
+#       ├──────────────────┼─────────┼────────────┼─────────┼───────────┼──────────────┤
+#       │urgent            │ #2f343a │ #900000    │ #ffffff │ #900000   │ #900000      │
+#       ├──────────────────┼─────────┼────────────┼─────────┼───────────┼──────────────┤
+#       │placeholder       │ #000000 │ #0c0c0c    │ #ffffff │ #000000   │ #0c0c0c      │
+#       └──────────────────┴─────────┴────────────┴─────────┴───────────┴──────────────┘
+
+smart_borders on
 
 ### Output configuration
 #
@@ -64,10 +116,10 @@ output * scale 1
 #       natural_scroll enabled
 #       middle_emulation enabled
 #   }
-input "2:1:PS/2_Generic_Mouse" {
-    accel_profile adaptive
-    pointer_accel 1
-}
+# input "2:1:PS/2_Generic_Mouse" {
+#     accel_profile adaptive
+#     pointer_accel 1
+# }
 #
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
@@ -78,8 +130,8 @@ input "2:1:PS/2_Generic_Mouse" {
 # Program Defaults:
 #
     # Default workspaces
-    assign [app_id="org.pwmt.zathura"] 2
-    assign [app_id="firefox"] 9
+    #assign [app_id="org.pwmt.zathura"] 2
+    #assign [app_id="firefox"] 9
 
     # Default layout
     for_window [class="ffplay"] floating enable
@@ -90,7 +142,7 @@ input "2:1:PS/2_Generic_Mouse" {
 # Basics:
 #
     # Start a terminal
-    bindsym $mod+Return+Shift exec $term
+    bindsym $mod+Return exec $term
     # Start your launcher
     bindsym $mod+p exec $menu
 
@@ -143,7 +195,7 @@ input "2:1:PS/2_Generic_Mouse" {
     bindsym $mod+1 workspace 1
     bindsym $mod+2 workspace 2
     bindsym $mod+3 workspace 3
-    bindsym $mod+4 workspace 4
+    bindsym $mod+4 workspace 'tray'
     bindsym $mod+5 workspace 5
     bindsym $mod+6 workspace 6
     bindsym $mod+7 workspace 7
@@ -154,7 +206,7 @@ input "2:1:PS/2_Generic_Mouse" {
     bindsym $mod+Shift+1 move container to workspace 1
     bindsym $mod+Shift+2 move container to workspace 2
     bindsym $mod+Shift+3 move container to workspace 3
-    bindsym $mod+Shift+4 move container to workspace 4
+    bindsym $mod+Shift+4 move container to workspace 'tray'
     bindsym $mod+Shift+5 move container to workspace 5
     bindsym $mod+Shift+6 move container to workspace 6
     bindsym $mod+Shift+7 move container to workspace 7
@@ -175,8 +227,9 @@ input "2:1:PS/2_Generic_Mouse" {
 
     # Switch the current container between different layout styles
     bindsym $mod+s layout stacking
-    bindsym $mod+w layout tabbed
-    bindsym $mod+e layout toggle split
+    bindsym $mod+t layout tabbed
+    bindsym $mod+d layout default
+    bindsym $mod+e split none
 
     # Make the current focus fullscreen
     bindsym $mod+f fullscreen
@@ -197,11 +250,11 @@ input "2:1:PS/2_Generic_Mouse" {
 #    # You can send windows there and get them back later.
 #
 #    # Move the currently focused window to the scratchpad
-#    bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+Shift+minus move scratchpad
 #
 #    # Show the next scratchpad window or hide the focused scratchpad window.
 #    # If there are multiple scratchpad windows, this command cycles through them.
-#    bindsym $mod+minus scratchpad show
+bindsym $mod+minus scratchpad show
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Resizing containers:
@@ -239,7 +292,7 @@ bar {
 
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
-    status_command while date +'%Y-%m-%d %l:%M %p'; do sleep 60; done
+    status_command while date +'%Y-%m-%d %H:%M'; do sleep 60; done
 
     colors {
         statusline #f9f6e3
