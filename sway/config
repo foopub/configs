@@ -1,0 +1,96 @@
+include /etc/sway/config
+include /etc/sway/config.d/*
+
+# My config start
+
+# Keyboard
+input type:keyboard {
+	xkb_layout gb
+	xkb_options grp:shift_caps_toggle
+}
+
+# Colours
+set $col_0 #073642
+set $col_1 #dc322f
+set $col_2 #859900
+set $col_3 #b58900
+set $col_4 #268bd2
+set $col_5 #d33682
+set $col_6 #2aa198
+set $col_7 #eee8d5
+set $col_8 #002b36
+set $col_9 #cb4b16
+set $col_10 #586e75
+set $col_11 #657b83
+set $col_12 #839496
+set $col_13 #6c71c4
+set $col_14 #93a1a1
+set $col_15 #fdf6e3
+
+#client.<class>             <border>       <bg>           <text>         [<indic.>      [<child_border>]]
+client.focused              #cb4b16        #073642        #859900        #d33682        #6c71c4
+client.focused_inactive     #586e75        #073642        #859900        #073642        #586e75
+client.unfocused            #586e75        #002b36        #b58900        #073642        #073642
+
+#Defaults
+#       ┌──────────────────┬─────────┬────────────┬─────────┬───────────┬──────────────┐
+#       │      class       │ border  │ background │ text    │ indicator │ child_border │
+#       ├──────────────────┼─────────┼────────────┼─────────┼───────────┼──────────────┤
+#       │background        │ n/a     │ #ffffff    │ n/a     │ n/a       │ n/a          │
+#       ├──────────────────┼─────────┼────────────┼─────────┼───────────┼──────────────┤
+#       │focused           │ #4c7899 │ #285577    │ #ffffff │ #2e9ef4   │ #285577      │
+#       ├──────────────────┼─────────┼────────────┼─────────┼───────────┼──────────────┤
+#       │focused_inactive  │ #333333 │ #5f676a    │ #ffffff │ #484e50   │ #5f676a      │
+#       ├──────────────────┼─────────┼────────────┼─────────┼───────────┼──────────────┤
+#       │focused_tab_title │ #333333 │ #5f676a    │ #ffffff │ n/a       │ n/a          │
+#       ├──────────────────┼─────────┼────────────┼─────────┼───────────┼──────────────┤
+#       │unfocused         │ #333333 │ #222222    │ #888888 │ #292d2e   │ #222222      │
+#       ├──────────────────┼─────────┼────────────┼─────────┼───────────┼──────────────┤
+#       │urgent            │ #2f343a │ #900000    │ #ffffff │ #900000   │ #900000      │
+#       ├──────────────────┼─────────┼────────────┼─────────┼───────────┼──────────────┤
+#       │placeholder       │ #000000 │ #0c0c0c    │ #ffffff │ #000000   │ #0c0c0c      │
+#       └──────────────────┴─────────┴────────────┴─────────┴───────────┴──────────────┘
+
+
+# Background
+output * bg #000000 solid_color
+output * scale 1
+
+default_border pixel 1
+smart_borders on
+
+font "monospace 13"
+
+seat seat0 xcursor_theme BreezeX-RosePine-Linux 30
+
+# Default layout
+for_window [class="ffplay"] floating enable
+
+# Swaybar
+bar bar-0 {
+    position top
+    font "monospace 13"
+
+    status_command while date +'%Y-%m-%d %H:%M'; do sleep 60; done
+
+    colors {
+        statusline #f9f6e3
+        background #000000
+	focused_workspace #000000 #000000 #2aa198
+        inactive_workspace #000000 #000000 #5c5c5c
+    }
+}
+
+set $menu wmenu-run -f "NotoSans 13"
+
+unbindsym $mod+d
+unbindsym $mod+Shift+c
+unbindsym $mod+b
+unbindsym $mod+s
+
+bindsym $mod+d exec $menu
+bindsym $mod+Shift+c kill
+bindsym $mod+Shift+r reload
+bindsym $mod+b bar mode toggle
+bindsym $mod+Shift+v splith
+bindsym $mod+s exec grim -g "$(slurp)" - | wl-copy

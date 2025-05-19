@@ -1,0 +1,6 @@
+# esp32 
+ACTION="add", SUBSYSTEMS=="usb", ATTRS{idVendor}=="1a86", ATTRS{idProduct}=="55d4", OWNER:="foodev"
+# Simcom sim7000
+ACTION="add", SUBSYSTEMS=="usb", ATTRS{idVendor}=="1e0e", ATTRS{idProduct}=="9001", OWNER:="foodev"
+# RPi (all)
+ACTION="add", SUBSYSTEMS=="usb", ATTRS{idVendor}=="2e8a", OWNER:="foodev"
