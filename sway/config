@@ -64,7 +64,7 @@ font "monospace 13"
 seat seat0 xcursor_theme BreezeX-RosePine-Linux 30
 
 # Default layout
-for_window [class="ffplay"] floating enable
+for_window [app_id="com.saivert.pwvucontrol"] floating enable
 
 # Swaybar
 bar bar-0 {
@@ -87,6 +87,7 @@ unbindsym $mod+d
 unbindsym $mod+Shift+c
 unbindsym $mod+b
 unbindsym $mod+s
+unbindsym $mod+Shift+q
 
 bindsym $mod+d exec $menu
 bindsym $mod+Shift+c kill
@@ -94,3 +95,4 @@ bindsym $mod+Shift+r reload
 bindsym $mod+b bar mode toggle
 bindsym $mod+Shift+v splith
 bindsym $mod+s exec grim -g "$(slurp)" - | wl-copy
+bindsym $mod+p exec pwvucontrol
