@@ -8,18 +8,19 @@ filetype plugin indent on
 syntax enable
 
 "#~~~~~~~~Plugins~~~~~~~~
-"call plug#begin('~/.local/share/nvim/plugged')
-"Plug 'neovim/nvim-lspconfig'
-"Plug 'junegunn/fzf.vim'
-"Plug 'norcalli/nvim-colorizer.lua'
-"
-""Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'} unmaintained :(
-"Plug 'tjdevries/nlua.nvim'
-"Plug 'ziglang/zig.vim'
-"Plug 'p00f/clangd_extensions.nvim'
-"
-"Plug 'overcache/NeoSolarized'
-"call plug#end()
+if eval($NIX_SSL_CERT_FILE == "")
+    call plug#begin('~/.local/share/nvim/plugged')
+    Plug 'neovim/nvim-lspconfig'
+    Plug 'junegunn/fzf.vim'
+    Plug 'norcalli/nvim-colorizer.lua'
+
+    Plug 'tjdevries/nlua.nvim'
+    Plug 'ziglang/zig.vim'
+    Plug 'p00f/clangd_extensions.nvim'
+
+    Plug 'overcache/NeoSolarized'
+    call plug#end()
+endif
 
 " auto close doc window
 autocmd CompleteDone * if pumvisible() == 0 | pclose | endif
